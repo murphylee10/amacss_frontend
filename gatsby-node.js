@@ -12,7 +12,7 @@ exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
 
   createPage({
-    path: '/api/facebookProxy',
-    component: require.resolve('./src/api/facebookProxy.js'),
+    path: '/api/proxy.js',
+    component: require.resolve('./src/api/proxy.js'),
   });
 };
