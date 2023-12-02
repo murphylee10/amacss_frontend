@@ -5,15 +5,6 @@ module.exports = {
     title: "AMACSS Website",
   },
   plugins: [
-    {
-      resolve: `gatsby-source-instagram`, 
-      options: {
-        username: "amacss_utsc",
-        access_token: "EAASsLgJpmuwBO5lcYulctU1WZBCyezbRzJzCnL3u8rgdkkiTZALZCrYZAty4tWsTrZCdeM4iAPogjxTsI1Vm4RYhuwVBC4d5IVsYO7tjTZANiUTS3q75h2xp5VXs49TBqZAK5wIEbwvyVkTPASP5lEPtIk2o83r3E9YhTeJDyGXnAmu9rvheoI0t2lVlBSsUyFX",
-        instagram_id: "17841405661778258",
-        maxPosts: 8,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-svgr`,
     `gatsby-plugin-styled-components`,
@@ -22,6 +13,15 @@ module.exports = {
       options: {
         name: `team`,
         path: `${__dirname}/src/images/team`,
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`, 
+      options: {
+        username: "amacss_utsc",
+        access_token: "EAASsLgJpmuwBO5lcYulctU1WZBCyezbRzJzCnL3u8rgdkkiTZALZCrYZAty4tWsTrZCdeM4iAPogjxTsI1Vm4RYhuwVBC4d5IVsYO7tjTZANiUTS3q75h2xp5VXs49TBqZAK5wIEbwvyVkTPASP5lEPtIk2o83r3E9YhTeJDyGXnAmu9rvheoI0t2lVlBSsUyFX",
+        instagram_id: "17841405661778258",
+        maxPosts: 17,
       },
     },
     {

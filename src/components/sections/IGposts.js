@@ -32,7 +32,13 @@ export const Feed = styled.div`
 
 class Post extends React.Component {
     render() {
-      const posts = this.props.data.allInstaNode.edges;
+      // const posts = this.props.data.allInstaNode.edges;
+
+      const { data } = this.props;
+
+      const posts = data.allInstaNode.edges.filter(
+        ({ node }) => node.localFile && node.localFile.childImageSharp && node.mediaType !== 'VIDEO'
+      );
   
       return (
         <Feed>

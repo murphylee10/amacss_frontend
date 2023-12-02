@@ -28,7 +28,8 @@ export const query = graphql`
     query {
         allInstaNode (
             sort: {fields: timestamp, order: DESC}
-            filter: {mediaType: {ne: "VIDEO"} }) {
+            filter: {mediaType: {eq: "IMAGE"} } 
+            ) {
             edges {
                 node {
                     id
