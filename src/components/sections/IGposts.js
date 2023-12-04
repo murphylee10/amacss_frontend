@@ -36,6 +36,7 @@ class Post extends React.Component {
 
       const { data } = this.props;
 
+      // Filter the node data to avoid null objects
       const posts = data.allInstaNode.edges.filter(
         ({ node }) => node.localFile && node.localFile.childImageSharp && node.mediaType !== 'VIDEO'
       );
@@ -45,28 +46,39 @@ class Post extends React.Component {
             {posts.map(({ node }) => {
                 const { id, caption, permalink, localFile, timestamp, mediaType } = node;
 
-            if (localFile && localFile.childImageSharp && (mediaType != 'VIDEO')) {
-                return (
-                    <div className='post' key={id}>
-                        <a href={permalink}>
-                            <img 
-                                className='image'  
-                                src={localFile.childImageSharp.fluid.src}
-                                alt={caption}/>
-                        </a>
+            // if (localFile && localFile.childImageSharp && (mediaType != 'VIDEO')) {
+            //     return (
+            //         <div className='post' key={id}>
+            //             <a href={permalink}>
+            //                 <img 
+            //                     className='image'  
+            //                     src={localFile.childImageSharp.fluid.src}
+            //                     alt={caption}/>
+            //             </a>
                         
-                        {/* <div className='caption'>
-                            <p>{caption}</p>
-                            <a href={permalink} target='_blank' rel='noopener noreferrer'>
-                                View on Instagram
-                            </a>
-                        </div> */}
-                    </div>
-                );
-            } else {
-                console.warn(`Skipping post with ID ${id} due to missing image data...`);
-                return null;
-            }
+            //             {/* <div className='caption'>
+            //                 <p>{caption}</p>
+            //                 <a href={permalink} target='_blank' rel='noopener noreferrer'>
+            //                     View on Instagram
+            //                 </a>
+            //             </div> */}
+            //         </div>
+            //     );
+            // } else {
+            //     console.warn(`Skipping post with ID ${id} due to missing image data...`);
+            //     return null;
+            // }
+
+            return (
+                <div className='post' key={id}>
+                    <a href={permalink}>
+                        <img 
+                            className='image'  
+                            src={localFile.childImageSharp.fluid.src}
+                            alt={caption}/>
+                    </a>
+                </div>
+            );
             })}
         </Feed>
       );
